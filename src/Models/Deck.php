@@ -37,7 +37,7 @@ class Deck {
      * @return array
      */
     public function drawCards($numberOfCards) {
-        return array_slice($this->cards, -$numberOfCards);
+        return array_splice($this->cards, -$numberOfCards);
     }
 
 }

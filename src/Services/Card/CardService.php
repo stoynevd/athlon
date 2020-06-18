@@ -11,15 +11,27 @@ class CardService {
         try {
 
             if ($card1->rank > $card2->rank) {
-                return $card1->__toString() . ' is greater than ' . $card2->__toString();
+                return [
+                    'winner' => 1,
+                    'message' => $card1->__toString() . ' is greater than ' . $card2->__toString()
+                ];
             } elseif ($card1->rank < $card2->rank) {
-                return $card2->__toString() . ' is greater than ' . $card1->__toString();
+                return [
+                    'winner' => 2,
+                    'message' => $card2->__toString() . ' is greater than ' . $card1->__toString()
+                ];
             }
 
-            return $card1->__toString() . ' is the same as ' . $card2->__toString();
+            return [
+                'winner' => 0,
+                'message' => $card1->__toString() . ' is the same as ' . $card2->__toString()
+            ];
 
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return [
+                'winner' => 404,
+                'message' => $e->getMessage()
+            ];
         }
     }
 
