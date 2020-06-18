@@ -6,6 +6,14 @@ use Models\Card;
 
 class CardService {
 
+    /**
+     *
+     * This method receives two Card objects and compares their rank
+     * and returns which card wins
+     * @param Card $card1
+     * @param Card $card2
+     * @return array
+     */
     public function compareCards(Card $card1, Card $card2) {
 
         try {
@@ -18,7 +26,7 @@ class CardService {
             } elseif ($card1->rank < $card2->rank) {
                 return [
                     'winner' => 2,
-                    'message' => $card2->__toString() . ' is greater than ' . $card1->__toString()
+                    'message' => $card1->__toString() . ' is smaller than ' . $card2->__toString()
                 ];
             }
 

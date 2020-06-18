@@ -8,7 +8,7 @@ class Player {
     public $score;
     public $deck;
 
-    public function __construct($name, $score, $deck) {
+    public function __construct($name, $score, Deck $deck) {
         $this->name = $name;
         $this->score = $score;
         $this->deck = $deck;

@@ -26,7 +26,8 @@ class CardTest extends TestCase {
 
         $cs = new CardService();
 
-        $this->assertEquals('Jack of spades is greater than 4 of spades', $cs->compareCards($card1, $card2));
+        $this->assertEquals(1, $cs->compareCards($card1, $card2)['winner']);
+        $this->assertEquals('Jack of spades is greater than 4 of spades', $cs->compareCards($card1, $card2)['message']);
     }
 
     public function testCompareCardsDraw() {
@@ -35,7 +36,8 @@ class CardTest extends TestCase {
 
         $cs = new CardService();
 
-        $this->assertEquals('4 of hearts is the same as 4 of hearts', $cs->compareCards($card1, $card2));
+        $this->assertEquals(0, $cs->compareCards($card1, $card2)['winner']);
+        $this->assertEquals('4 of hearts is the same as 4 of hearts', $cs->compareCards($card1, $card2)['message']);
     }
 
 }
